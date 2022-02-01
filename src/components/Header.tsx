@@ -17,7 +17,6 @@ const HeaderContent = styled.div`
 `
 
 const HeaderTitle = styled.a`
-
   transition: all .5s linear; 
  
   &:hover {
@@ -65,8 +64,7 @@ const Header: FC = () => {
             {theme} Theme
           </HeaderTogleTheme>
         </HeaderContent>        
-      </Container>
-      
+      </Container>      
     </HeaderWrapper>
   )
 }
