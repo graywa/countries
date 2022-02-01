@@ -61,7 +61,7 @@ const Header: FC = () => {
           </HeaderTitle>
           <HeaderTogleTheme onClick={toggleHandler}>
             <ThemeIcon width={20} src={theme === 'light' ? moonOut : moon} alt="theme" />
-            {theme} Theme
+            {theme} Mode
           </HeaderTogleTheme>
         </HeaderContent>        
       </Container>      
