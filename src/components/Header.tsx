@@ -3,6 +3,7 @@ import moon from '../accets/img/moon.svg'
 import moonOut from '../accets/img/moon-outline.svg'
 import styled from 'styled-components'
 import { Container } from './Container'
+import { Link } from 'react-router-dom'
 
 const HeaderWrapper = styled.div`
   background-color: var(--colors-ui);
@@ -16,7 +17,9 @@ const HeaderContent = styled.div`
   padding: 2rem 0;
 `
 
-const HeaderTitle = styled.a`
+const HeaderTitle = styled(Link).attrs({
+  to: '/'
+})`
   transition: all .5s linear; 
  
   &:hover {

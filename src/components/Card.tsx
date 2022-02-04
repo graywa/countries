@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 const Wrapper = styled.article`
@@ -51,12 +52,14 @@ interface IInfo {
 interface IProps {
   img: string,
   name: string,  
-  info: IInfo[]
+  info: IInfo[]  
 }
 
 const Card: FC<IProps> = ({img, name, info = []}) => {
+  const navigate = useNavigate()
+
   return (
-    <Wrapper>
+    <Wrapper onClick={() => navigate(`/country/${name}`)}>
       <Flag src={img} alt='flag'/>
       <CardContent>
         <CardName>{name}</CardName>
