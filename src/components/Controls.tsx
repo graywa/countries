@@ -1,4 +1,4 @@
-import React, { FC, useState } from 'react'
+import React, { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import CustomSelect from './CustomSelect'
 import Search from './Search'
@@ -15,25 +15,35 @@ const Wrapper = styled.div`
   }
 `
 
-const Controls: FC = () => {
-  const [search, setSearch] = useState('')
-  const [region, setRegion] = useState('')
+interface IProps {
+  onFilter: (search: string, region: string) => void
+}
 
+const Controls: FC<IProps> = ({onFilter}) => {
+  const [search, setSearch] = useState('')
+  const [region, setRegion] = useState({label: '', value: ''})
+  
   const options = [
     {label: 'Africa', value: 'Africa'},
-    {label: 'America', value: 'America'},
+    {label: 'Americas', value: 'Americas'},
     {label: 'Asia', value: 'Asia'},
     {label: 'Europe', value: 'Europe'},
     {label: 'Oceania', value: 'Oceania'},
   ]
+
+  useEffect(() => {
+    const regionValue = region?.value || '' 
+    onFilter(search, regionValue)
+  }, [search, region])
 
   return (
     <Wrapper>
       <Search search={search} setSearch={setSearch} />    
       <CustomSelect 
         options={options} 
-        placeholder='Choose a region'
+        placeholder="Filter by Region"
         isClearable
+        isSearchable={false}
         value={region}
         //@ts-ignore
         onChange={setRegion}

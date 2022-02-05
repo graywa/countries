@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, {FC, useEffect} from 'react'
+import React, {FC, useEffect, useState} from 'react'
 import Card from '../components/Card'
 import Controls from '../components/Controls'
 import List from '../components/List'
@@ -21,6 +21,21 @@ interface IProps {
 
 const HomePage: FC<IProps> = ({countries, setCountries}) => {
 
+  const [filteredCountries, setFilteredCountries] = useState(countries)
+
+  const filterHandler = (search: string, region: string) => {
+    let data = [...countries]
+
+    if(search) {
+      data = data.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
+    }
+
+    if(region) {
+      data = data.filter(item => item.region.includes(region) )
+    }
+
+    setFilteredCountries(data)
+  }
 
   useEffect(() => {
     if(!countries.length) {
@@ -31,9 +46,9 @@ const HomePage: FC<IProps> = ({countries, setCountries}) => {
 
   return (
     <div>
-      <Controls />
+      <Controls onFilter={filterHandler} />
       <List>
-        {countries.map((item: ICountrie) => {
+        {filteredCountries.map((item: ICountrie) => {
           return <Card 
                     key={item.name}
                     img={item.flags.png}

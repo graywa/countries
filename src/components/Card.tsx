@@ -9,6 +9,7 @@ const Wrapper = styled.article`
   width: 260px;
   margin-bottom: 1.5rem;
   cursor: pointer;
+  overflow: hidden;
 `
 
 const Flag = styled.img`
@@ -17,8 +18,7 @@ const Flag = styled.img`
   height: 150px;
   object-fit: cover;
   object-position: center;
-  box-shadow: var(--shadow);
-  overflow: hidden;
+  box-shadow: var(--shadow);  
 `
 
 const CardContent = styled.div`

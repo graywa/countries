@@ -20,6 +20,7 @@ const HeaderContent = styled.div`
 const HeaderTitle = styled(Link).attrs({
   to: '/'
 })`
+  color: var(--colors-text);
   transition: all .5s linear; 
  
   &:hover {
