@@ -45,7 +45,7 @@ const CardInfoItem = styled.li`
 `
 
 interface IInfo {
-   title: string,
+  title: string,
   description: string
 }
 

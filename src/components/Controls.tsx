@@ -21,8 +21,8 @@ interface IProps {
 
 const Controls: FC<IProps> = ({onFilter}) => {
   const [search, setSearch] = useState('')
-  const [region, setRegion] = useState({label: '', value: ''})
-  
+  const [region, setRegion] = useState(null as null | {label: '', value: ''})
+
   const options = [
     {label: 'Africa', value: 'Africa'},
     {label: 'Americas', value: 'Americas'},

@@ -1,9 +1,9 @@
 import React, { FC, useEffect, useState } from 'react'
-import moon from '../accets/img/moon.svg'
-import moonOut from '../accets/img/moon-outline.svg'
 import styled from 'styled-components'
 import { Container } from './Container'
 import { Link } from 'react-router-dom'
+import { IoMoon, IoMoonOutline } from 'react-icons/io5';
+
 
 const HeaderWrapper = styled.div`
   background-color: var(--colors-ui);
@@ -22,6 +22,7 @@ const HeaderTitle = styled(Link).attrs({
 })`
   color: var(--colors-text);
   transition: all .5s linear; 
+  text-decoration: none;
  
   &:hover {
     cursor: pointer;
@@ -41,10 +42,6 @@ const HeaderTogleTheme = styled.div`
   }
 `
 
-const ThemeIcon = styled.img` 
-  margin-right: .5rem; 
-`
-
 const Header: FC = () => {
   const [theme, setTheme] = useState('light')
 
@@ -60,12 +57,14 @@ const Header: FC = () => {
     <HeaderWrapper>
       <Container>
         <HeaderContent>
-          <HeaderTitle>
-            Where is the world?
-          </HeaderTitle>
+          <HeaderTitle>Where is the world?</HeaderTitle>
           <HeaderTogleTheme onClick={toggleHandler}>
-            <ThemeIcon width={20} src={theme === 'light' ? moonOut : moon} alt="theme" />
-            {theme} Mode
+            {
+            theme === 'light'
+            ? <IoMoonOutline size='20px' />
+            : <IoMoon size='20px' />
+            }
+            <span style={{marginLeft: '.5rem'}} >{theme} Mode</span> 
           </HeaderTogleTheme>
         </HeaderContent>        
       </Container>      

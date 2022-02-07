@@ -29,7 +29,6 @@ const HomePage: FC<IProps> = ({countries, setCountries}) => {
     if(search) {
       data = data.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
     }
-
     if(region) {
       data = data.filter(item => item.region.includes(region) )
     }
@@ -43,6 +42,8 @@ const HomePage: FC<IProps> = ({countries, setCountries}) => {
       .then(response => setCountries(response.data))
     }    
   }, [])
+
+  if(!countries.length) return <h3>loading...</h3>
 
   return (
     <div>

@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
-import searchIcon from '../accets/img/search-outline.svg'
+import { IoSearch } from 'react-icons/io5'
 
 interface IProps {
   search: string,
@@ -23,15 +23,12 @@ const SearchWrapper = styled.label`
   }
 `
 
-const SearchIcon = styled.img`
-  margin: 0 .5rem;
-`
-
 const Input = styled.input.attrs({
   type: 'search',
-  placeholder: 'search a country...'
+  placeholder: 'search a country...'  
 })`
   width: 100%;
+  margin-left: .75rem;
 
   color: var(--colors-text);
   background-color: var(--colors-ui);
@@ -45,7 +42,7 @@ const Input = styled.input.attrs({
 const Search: FC<IProps> = ({search, setSearch}) => {
   return (
     <SearchWrapper>
-      <SearchIcon width={20} src={searchIcon} alt="search" /> 
+      <IoSearch size='20px' />
       <Input value={search} onChange={e => setSearch(e.target.value)} />
     </SearchWrapper>
   )
