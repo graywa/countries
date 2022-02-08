@@ -6,7 +6,7 @@ import List from '../components/List'
 import { ALL_COUNTRIES } from '../servise'
 
 
-export interface ICountrie {
+export interface ICountry {
   name: string,
   capital: string,
   region: string,
@@ -15,8 +15,8 @@ export interface ICountrie {
 }
 
 interface IProps {
-  countries: ICountrie[],
-  setCountries: (data: ICountrie[]) => void
+  countries: ICountry[],
+  setCountries: (data: ICountry[]) => void
 }
 
 const HomePage: FC<IProps> = ({countries, setCountries}) => {
@@ -49,7 +49,7 @@ const HomePage: FC<IProps> = ({countries, setCountries}) => {
     <div>
       <Controls onFilter={filterHandler} />
       <List>
-        {filteredCountries.map((item: ICountrie) => {
+        {filteredCountries.map((item: ICountry) => {
           return <Card 
                     key={item.name}
                     img={item.flags.png}

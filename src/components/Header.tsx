@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { Container } from './Container'
 import { Link } from 'react-router-dom'
-import { IoMoon, IoMoonOutline } from 'react-icons/io5';
+import { IoMoon, IoMoonOutline } from 'react-icons/io5'
 
 
 const HeaderWrapper = styled.div`

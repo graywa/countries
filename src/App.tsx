@@ -4,12 +4,12 @@ import './App.css'
 import Header from './components/Header'
 import Main from './components/Main'
 import Details from './pages/Details'
-import HomePage, { ICountrie } from './pages/HomePage'
+import HomePage, { ICountry } from './pages/HomePage'
 import NotFound from './pages/NotFound'
 
 const App: FC = () => { 
 
-  const [countries, setCountries] = useState([] as ICountrie[])
+  const [countries, setCountries] = useState([] as ICountry[])
 
   return <div className='App'>    
     <Header />

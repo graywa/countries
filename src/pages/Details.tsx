@@ -7,7 +7,7 @@ import { searchByCountry } from '../servise'
 import { IoArrowBack } from 'react-icons/io5'
 
 
-interface IFullInfoCountrie {
+export interface IFullInfoCountry {
   name: string,
   flag: string,
   languages: ILang[],
@@ -24,17 +24,18 @@ interface IFullInfoCountrie {
 const Details: FC = () => {
   const {name} = useParams()
 
-  const [countrie, setCountrie] = useState(null as null | IFullInfoCountrie)
-  console.log(countrie)
+  const [country, setCountry] = useState(null as null | IFullInfoCountry)
 
   useEffect(() => {
     axios.get(searchByCountry(name))
-      .then(({data}) => setCountrie(data[0]))
+      .then(({data}) => setCountry(data[0]))
   }, [name])
   
   const navigate = useNavigate()
 
   const goBack = () => navigate(-1)
+
+  if(!country) return <h3>loading...</h3>
    
   return (
     <div>
@@ -42,9 +43,8 @@ const Details: FC = () => {
         <IoArrowBack size='20px' />
         back
       </Button>
-      <Info {...countrie} />
+      <Info {...country} />
     </div>
-    
   ) 
 }
 
